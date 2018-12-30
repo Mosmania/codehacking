@@ -2,22 +2,30 @@
 
 namespace App;
 
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
+//use Cviebrock\EloquentSluggable\Sluggable;
+//use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model implements SluggableInterface
+class Post extends Model
 {
     //
 
-    use SluggableTrait;
+//    use Sluggable;
+//    use SluggableScopeHelpers;
 
-    protected $sluggable = [
-        'build_from' => 'title',
-        'save_to'    => 'slug',
-        'on_update'  => true,
-    ];
-
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+//    public function sluggable()
+//    {
+//        return [
+//            'slug' => [
+//                'source' => 'title'
+//            ]
+//        ];
+//    }
 
     protected $fillable = [
 
@@ -35,8 +43,8 @@ class Post extends Model implements SluggableInterface
     public function photo(){
 
         return $this->belongsTo('App\Photo');
-
     }
+
     public function category(){
 
         return $this->belongsTo('App\Category');
@@ -46,4 +54,11 @@ class Post extends Model implements SluggableInterface
 
         return $this->hasMany('App\Comment');
     }
+
+    public function photoPlaceholder(){
+
+        return "http://placehold.it/700x200";
+    }
+
+
 }

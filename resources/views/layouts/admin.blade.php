@@ -12,16 +12,8 @@
     <title>Admin</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
-    {{--Met gulp en dan samengevoegd in libs.css werkt niet !?!?, dus maar even los--}}
-    {{--<link href="{{asset('xxx-css/blog-post.css')}}" rel="stylesheet">--}}
-    {{--<link href="{{asset('xxx-css/bootstrap.css')}}" rel="stylesheet">--}}
-    {{--<link href="{{asset('xxx-css/bootstrap.min.css')}}" rel="stylesheet">--}}
-    {{--<link href="{{asset('xxx-css/font-awesome.css')}}" rel="stylesheet">--}}
-    {{--<link href="{{asset('xxx-css/metisMenu.css')}}" rel="stylesheet">--}}
-    {{--<link href="{{asset('xxx-css/sb-admin-2.css')}}" rel="stylesheet">--}}
-    {{--<link href="{{asset('xxx-css/styles.css')}}" rel="stylesheet">--}}
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -167,9 +159,9 @@
                                 <a href="{{route('admin.categories.index')}}">All Categories</a>
                             </li>
 
-                            <li>
-                                <a href="{{route('admin.categories.create')}}">Create Category</a>
-                            </li>
+                            {{--<li>--}}
+                                {{--<a href="{{route('admin.categories.create')}}">Create Category</a>--}}
+                            {{--</li>--}}
 
                         </ul>
                         <!-- /.nav-second-level -->
