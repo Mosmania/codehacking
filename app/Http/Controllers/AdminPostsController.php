@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -22,7 +23,7 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
-        $posts = Post::paginate(2);
+        $posts = Post::paginate(9);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -98,6 +99,7 @@ class AdminPostsController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        return $request->all();
         //
         $input = $request->all();
 
@@ -108,7 +110,9 @@ class AdminPostsController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-        Auth::user()->posts()->whereId($id)->first()->update($input);
+//        Auth::user()->posts()->whereId($id)->first()->update($input);
+        $user = User::findOrFail($request->user_id);
+        $user->posts()->whereId($id)->first()->update($input);
 
         Session::flash('updated_post', 'The post has been updated');
         return redirect('admin/posts');

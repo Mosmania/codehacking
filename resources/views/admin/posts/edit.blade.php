@@ -14,6 +14,7 @@
         <div class="col-sm-9">
 
             {!! Form::model($post, ['method'=>'PATCH', 'action'=>['AdminPostsController@update', $post->id], 'files'=>true]) !!}
+            <input type="hidden" name="user_id" value="{{$post->user_id}}">
                 <div class="form-group">
                     {!! Form::label('title', 'Title:') !!}
                     {!! Form::text('title', null, ['class'=>'form-control']) !!}
